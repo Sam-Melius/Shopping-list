@@ -1,4 +1,4 @@
-import { checkAuth, logout } from '../fetch-utils.js';
+import { checkAuth, getListItems, logout } from '../fetch-utils.js';
 
 checkAuth();
 
@@ -23,3 +23,28 @@ form.addEventListener('submit', async(e) => {
 
     form.reset();
 });
+
+async function DisplayShoppingList(){
+    const list = await getListItems();
+
+        listEl.textContent = '';
+
+        for (let item of items) {
+            const listItemEl = document.createElement('p');
+            listItemEl.classList.add('list-item');
+            listItemEl.textContent = `${item.quantity} ${item.item}`;
+        }
+        if (item.bought) {
+            listItemEl.classList.add('bought');
+        } 
+        else {
+            listItemEl.classList.add('not-bought');
+            listItemEl.addEventListener('click', async() => {
+                await buyListItem(item.id);
+
+                DisplayShoppingList();
+            });
+            
+        }
+
+}
