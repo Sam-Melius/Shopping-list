@@ -19,7 +19,7 @@ body {
     --footer-height: 25px;
     
     font-family: 'Titillium Web', sans-serif;
-    background-color: var(--color2);
+    background-color: lightslategray;
 }
 
 main {
@@ -46,6 +46,8 @@ section {
     margin-top: var(--gutter);
     margin-bottom: var(--gutter);
     border: solid 2px var(--color1);
+    font-family: monospace;
+    font-size: large;
 }
 
 header {
@@ -54,6 +56,7 @@ header {
     background-color: var(--color3);
     height: var(--header-height);
     box-shadow: var(--shadow);
+    background-color: whitesmoke;
 }
 
 h2 {
@@ -115,6 +118,7 @@ footer {
     top: 90px;
     background-color: whitesmoke;
     color: maroon;
+    font-family: monospace;
 }
 
 .auth-main {
@@ -146,10 +150,16 @@ footer {
     color: whitesmoke;
     background-color: red;
     padding: 15px;
+    font-family: monospace;
+    font-size: x-large;
 }
 
 button {
     color: violet;
     background-color: limegreen;
+    padding: 5px;
+    font-family: fantasy;
+    font-size: large;
     
 }
+
