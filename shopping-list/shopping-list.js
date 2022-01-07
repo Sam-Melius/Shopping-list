@@ -1,4 +1,4 @@
-import { checkAuth, getListItems, createListItem, buyListItem, deleteAllItems, logout } from '../fetch-utils.js';
+import { checkAuth, getItems, createItem, buyItem, deleteAllItems, logout } from '../fetch-utils.js';
 
 checkAuth();
 
@@ -19,7 +19,7 @@ form.addEventListener('submit', async(e) => {
     const item = data.get('item');
     const quantity = data.get('quantity');
 
-    await createListItem(item, quantity);
+    await createItem(item, quantity);
 
     form.reset();
 
@@ -28,6 +28,8 @@ form.addEventListener('submit', async(e) => {
 
 deleteButton.addEventListener('click', async() => {
     await deleteAllItems();
+
+    await displayShoppingList();
 });
 
 window.addEventListener('load', async() => {
@@ -35,7 +37,7 @@ window.addEventListener('load', async() => {
 });
 
 async function displayShoppingList() {
-    const list = await getListItems();
+    const list = await getItems();
 
     listEl.textContent = '';
 
@@ -50,7 +52,7 @@ async function displayShoppingList() {
         else {
             listItemEl.classList.add('not-bought');
             listItemEl.addEventListener('click', async() => {
-                await buyListItem(item.id);
+                await buyItem(item.id);
 
                 displayShoppingList();
             });
