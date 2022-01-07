@@ -28,6 +28,14 @@ export async function buyListItem(id) {
     return checkError(response);
 }
 
+export async function deleteAllItems() {
+    const response = await client
+        .from('shopping_list')
+        .delete();
+
+    return checkError(response);
+}
+
 export async function getUser() {
     return client.auth.session();
 }
