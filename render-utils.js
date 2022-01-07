@@ -5,7 +5,7 @@ export function renderItem(item) {
     div.classList.add(item.bought ? 'bought' : 'not-bought');
     div.classList.add('item');
 
-    p.textContent = item.item;
+    p.textContent = `${item.quantity} ${item.item}`;
 
     div.append(p);
 
