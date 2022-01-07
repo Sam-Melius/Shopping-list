@@ -28,6 +28,9 @@ main {
     justify-content: center;
     align-items: center;
     margin-bottom: calc(var(--footer-height));
+    background-color: lightslategray;
+    color: gold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 section {
@@ -83,6 +86,7 @@ footer {
     justify-content: flex-end;
     background-color: var(--color3);
     box-shadow: var(--shadow);
+    background-color: rgb(57, 77, 97);
 }
 
   
@@ -109,6 +113,8 @@ footer {
     position: fixed;
     right: 20px;
     top: 90px;
+    background-color: whitesmoke;
+    color: maroon;
 }
 
 .auth-main {
@@ -128,4 +134,22 @@ footer {
 
 .auth-container button {
     margin: 10px;
+}
+
+.bought {
+    text-decoration: line-through;
+    color: crimson;
+    transform: rotate(350deg);
+}
+
+.delete {
+    color: whitesmoke;
+    background-color: red;
+    padding: 15px;
+}
+
+button {
+    color: violet;
+    background-color: limegreen;
+    
 }
