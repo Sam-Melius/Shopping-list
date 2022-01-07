@@ -1,4 +1,5 @@
 import { checkAuth, getItems, createItem, buyItem, deleteAllItems, logout } from '../fetch-utils.js';
+import { renderItem } from '../render-utils.js';
 
 checkAuth();
 
@@ -42,22 +43,16 @@ async function displayShoppingList() {
     listEl.textContent = '';
 
     for (let item of list) {
-        const listItemEl = document.createElement('p');
-        listItemEl.classList.add('list-item');
-        listItemEl.textContent = `${item.quantity} ${item.item}`;
-    
-        if (item.bought) {
-            listItemEl.classList.add('bought');
-        } 
-        else {
-            listItemEl.classList.add('not-bought');
-            listItemEl.addEventListener('click', async() => {
-                await buyItem(item.id);
+        const listItemEl = renderItem(item);
 
-                displayShoppingList();
-            });
+        
+        listItemEl.addEventListener('click', async() => {
+            await buyItem(item.id);
+
+            displayShoppingList();
+        });
             
-        }
+    
         listEl.append(listItemEl);
     }
 }
